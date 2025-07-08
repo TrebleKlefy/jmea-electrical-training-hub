@@ -87,7 +87,10 @@ export const MainTraining = () => {
                 ))}
               </div>
               <div className="mt-8">
-                <Button className="btn-hero">
+                <Button 
+                  className="btn-hero"
+                  onClick={() => window.open('https://jmea-training.com/modules', '_blank')}
+                >
                   Explore Training Modules
                 </Button>
               </div>

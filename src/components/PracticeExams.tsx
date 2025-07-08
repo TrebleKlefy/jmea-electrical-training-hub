@@ -92,7 +92,11 @@ export const PracticeExams = () => {
                     </div>
                   </div>
                   
-                  <Button variant="outline" className="w-full btn-outline">
+                  <Button 
+                    variant="outline" 
+                    className="w-full btn-outline"
+                    onClick={() => window.open(`https://jmea-training.com/exams/${exam.name.toLowerCase().replace(/\s+/g, '-')}`, '_blank')}
+                  >
                     Start Practice Exam
                   </Button>
                 </div>
@@ -103,7 +107,10 @@ export const PracticeExams = () => {
               <div className="bg-gradient-section rounded-lg p-6 inline-block">
                 <h4 className="text-lg font-bold text-foreground mb-2">Ready to Test Your Knowledge?</h4>
                 <p className="text-muted-foreground mb-4">Take a free diagnostic exam to see where you stand</p>
-                <Button className="btn-hero">
+                <Button 
+                  className="btn-hero"
+                  onClick={() => window.open('https://jmea-training.com/diagnostic', '_blank')}
+                >
                   Start Free Diagnostic
                 </Button>
               </div>

@@ -31,11 +31,18 @@ export const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button className="btn-hero group text-lg px-10 py-6">
+            <Button 
+              className="btn-hero group text-lg px-10 py-6"
+              onClick={() => window.open('https://jmea-training.com/courses', '_blank')}
+            >
               Start Training Now
               <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" className="btn-outline text-lg px-10 py-6 group">
+            <Button 
+              variant="outline" 
+              className="btn-outline text-lg px-10 py-6 group"
+              onClick={() => window.open('https://jmea-training.com/demo', '_blank')}
+            >
               <Play size={20} className="mr-2 group-hover:scale-110 transition-transform" />
               Watch Demo
             </Button>

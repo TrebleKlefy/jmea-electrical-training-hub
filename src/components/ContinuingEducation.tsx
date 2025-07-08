@@ -81,10 +81,17 @@ export const ContinuingEducation = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="btn-hero">
+                  <Button 
+                    className="btn-hero"
+                    onClick={() => window.open('https://jmea-training.com/continuing-education', '_blank')}
+                  >
                     View CE Courses
                   </Button>
-                  <Button variant="outline" className="btn-outline">
+                  <Button 
+                    variant="outline" 
+                    className="btn-outline"
+                    onClick={() => window.open('https://jmea-training.com/catalog.pdf', '_blank')}
+                  >
                     Download Catalog
                   </Button>
                 </div>

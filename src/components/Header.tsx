@@ -45,9 +45,12 @@ export const Header = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
-            <Button className="btn-hero">
-              Get Started
-            </Button>
+          <Button 
+            className="btn-hero"
+            onClick={() => window.open('https://jmea-training.com/signup', '_blank')}
+          >
+            Get Started
+          </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,7 +76,10 @@ export const Header = () => {
                   {item.name}
                 </a>
               ))}
-              <Button className="btn-hero mt-4 w-full">
+              <Button 
+                className="btn-hero mt-4 w-full"
+                onClick={() => window.open('https://jmea-training.com/signup', '_blank')}
+              >
                 Get Started
               </Button>
             </div>
