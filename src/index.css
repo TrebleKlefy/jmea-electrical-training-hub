@@ -2,41 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* JMEA Design System - Jamaica Electrical Association Online Training Platform */
 
 @layer base {
   :root {
+    /* Brand Colors - Red & Blue Theme */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 13% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 13% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 13% 9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - JMEA Red */
+    --primary: 0 79% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - JMEA Blue */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted backgrounds */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Blue variation */
+    --accent: 213 94% 68%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 0 79% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* JMEA Specific Colors */
+    --red-primary: 0 79% 50%;        /* #DC2626 equivalent */
+    --red-light: 0 86% 97%;          /* #FEF2F2 equivalent */
+    --blue-primary: 217 91% 60%;     /* #2563EB equivalent */
+    --blue-light: 213 100% 97%;      /* #EFF6FF equivalent */
+    --blue-dark: 217 91% 35%;        /* #1E3A8A equivalent */
+    --gray-50: 220 14% 96%;
+    --gray-600: 220 8% 46%;
+    --gray-900: 220 13% 9%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--red-primary)), hsl(var(--blue-primary)));
+    --gradient-section: linear-gradient(180deg, hsl(var(--blue-light)), hsl(var(--background)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--gray-50)));
+
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(var(--gray-600) / 0.1), 0 2px 4px -1px hsl(var(--gray-600) / 0.06);
+    --shadow-hero: 0 20px 25px -5px hsl(var(--red-primary) / 0.1), 0 10px 10px -5px hsl(var(--blue-primary) / 0.04);
+    --shadow-button: 0 4px 14px 0 hsl(var(--red-primary) / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +128,90 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero gradient background */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Section gradient backgrounds */
+  .section-gradient {
+    background: var(--gradient-section);
+  }
+
+  /* Custom shadows */
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-hero {
+    box-shadow: var(--shadow-hero);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Button variants */
+  .btn-hero {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 px-8 rounded-lg shadow-button transition-bounce;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold py-4 px-8 rounded-lg shadow-card transition-bounce;
+  }
+
+  .btn-outline {
+    @apply border-2 border-secondary text-secondary hover:bg-secondary/10 font-semibold py-4 px-8 rounded-lg transition-smooth;
+  }
+
+  /* Text utilities */
+  .text-hero {
+    @apply text-5xl md:text-6xl font-bold leading-tight;
+  }
+
+  .text-section-title {
+    @apply text-4xl font-bold;
+  }
+
+  .text-section-subtitle {
+    @apply text-2xl font-semibold;
+  }
+
+  /* Card styles */
+  .card-elevated {
+    @apply bg-card rounded-lg p-6 shadow-card border border-border transition-smooth hover:shadow-lg;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply text-foreground/80 hover:text-primary font-medium transition-smooth relative;
+  }
+
+  .nav-link:hover::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300;
   }
 }
