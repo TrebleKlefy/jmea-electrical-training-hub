@@ -8,6 +8,7 @@ import { PracticeExams } from '@/components/PracticeExams';
 import { BusinessSolutions } from '@/components/BusinessSolutions';
 import { Testimonials } from '@/components/Testimonials';
 import { Articles } from '@/components/Articles';
+import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <BusinessSolutions />
       <Testimonials />
       <Articles />
+      <Contact />
       <Footer />
     </div>
   );
