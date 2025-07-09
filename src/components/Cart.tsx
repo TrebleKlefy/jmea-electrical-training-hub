@@ -40,7 +40,7 @@ export const Cart = () => {
           />
           
           {/* Cart Panel */}
-          <div className="w-full max-w-md bg-card shadow-xl">
+          <div className="w-full max-w-md bg-white shadow-xl">
             <div className="flex items-center justify-between p-4 border-b border-border">
               <h2 className="text-lg font-semibold text-foreground">
                 Shopping Cart ({getTotalItems()})

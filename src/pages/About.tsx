@@ -1,4 +1,5 @@
 import { Award, Users, Target, Heart, Zap, Shield } from 'lucide-react';
+import MainLayout from '@/components/MainLayout'; // Import MainLayout
 
 const About = () => {
   const stats = [
@@ -32,9 +33,10 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
+    <MainLayout>
+      <div className="min-h-screen bg-background">
+        {/* Hero Section */}
+        <section className="bg-gradient-hero text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">About JMEA</h1>
@@ -169,6 +171,7 @@ const About = () => {
         </div>
       </section>
     </div>
+    </MainLayout>
   );
 };
 
