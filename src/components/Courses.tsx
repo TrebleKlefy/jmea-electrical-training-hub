@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Clock, Users, BookOpen, Star, Award, ChevronRight } from 'lucide-react';
+import { Clock, Users, BookOpen, Star, Award, ChevronRight, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { courses, courseCategories, Course } from '@/data/courses';
+import { useCart } from '@/contexts/CartContext';
 
 export const Courses = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Courses');
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+  const { addToCart } = useCart();
 
   const filteredCourses = selectedCategory === 'All Courses' 
     ? courses 
@@ -95,7 +97,7 @@ export const Courses = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mb-4">
                     <div className="text-2xl font-bold text-primary">
                       ${course.price}
                     </div>
@@ -107,6 +109,14 @@ export const Courses = () => {
                       View Details
                     </Button>
                   </div>
+                  
+                  <Button 
+                    className="btn-hero w-full"
+                    onClick={() => addToCart(course)}
+                  >
+                    <ShoppingCart className="w-4 h-4 mr-2" />
+                    Add to Cart
+                  </Button>
                 </div>
               </div>
             ))}

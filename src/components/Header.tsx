@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Cart } from './Cart';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,16 +43,23 @@ export const Header = () => {
                 {item.name}
               </a>
             ))}
+            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/faq" className="nav-link">FAQ</Link>
           </div>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:block">
-          <Button 
-            className="btn-hero"
-            onClick={() => window.open('https://jmea-training.com/signup', '_blank')}
-          >
-            Get Started
-          </Button>
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <Link to="/login">
+              <Button variant="outline" className="btn-outline">
+                Login
+              </Button>
+            </Link>
+            <Cart />
+            <Link to="/course-categories">
+              <Button className="btn-hero">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
