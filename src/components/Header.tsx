@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Cart } from './Cart';
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -33,18 +34,30 @@ export const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="nav-link"
+          <div className="hidden lg:flex items-center space-x-6">
+            <a href="#home" className="nav-link">Home</a>
+            <a href="#training" className="nav-link">Training</a>
+            <a href="#courses" className="nav-link">Courses</a>
+            
+            {/* More Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="nav-link flex items-center gap-1"
               >
-                {item.name}
-              </a>
-            ))}
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/faq" className="nav-link">FAQ</Link>
+                More <ChevronDown className="w-4 h-4" />
+              </button>
+              
+              {isDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg z-50">
+                  <div className="py-2">
+                    <Link to="/about" className="block px-4 py-2 hover:bg-muted transition-colors">About</Link>
+                    <Link to="/faq" className="block px-4 py-2 hover:bg-muted transition-colors">FAQ</Link>
+                    <a href="#contact" className="block px-4 py-2 hover:bg-muted transition-colors">Contact</a>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Desktop Actions */}

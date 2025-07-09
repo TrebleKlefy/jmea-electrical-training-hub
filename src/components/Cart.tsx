@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ShoppingCart, X, Plus, Minus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { Link } from 'react-router-dom';
 
 export const Cart = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,13 +114,12 @@ export const Cart = () => {
                   </span>
                 </div>
                 
-                <div className="space-y-2">
-                  <Button 
-                    onClick={handleCheckout}
-                    className="btn-hero w-full"
-                  >
-                    Checkout
-                  </Button>
+                <div className="space-y-3">
+                  <Link to="/checkout">
+                    <Button className="btn-hero w-full">
+                      Checkout
+                    </Button>
+                  </Link>
                   <Button 
                     onClick={clearCart}
                     variant="outline"
